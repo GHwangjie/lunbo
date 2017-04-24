@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*
+		轮播图功能实现思路：
+		1、绑定label和 input
+		2、分别在label和input之外引入图片
+		3、设置父元素和子元素的基本样式
+		4、调整大图和小图
+	*/
+		#content{
+			width: 800px;
+			margin:30px auto;
+			position: relative;
+		}
+		input[type="radio"]{display: none;}
+		input[type="radio"]~img{
+			width: 800px;height: 500px;
+			position: absolute;
+			top: 0;left: 0;
+			opacity: 0;
+			transform: scale(1.1);
+			transition: all 1s;
+		}
+		input:checked +label + img{
+			opacity: 1;
+			transform: scale(1.0);
+		}
+		input:checked + label img{
+			border:8px solid #ccc;
+			opacity: 1.0;
+			/*transform: scale(1.0);*/
+			transition: all 1s;
+		}
+		label{
+			display: inline-block;
+			width: 134px;
+			margin: 5px 8px;
+		}
+		label img{
+			opacity: 0.5;
+			width: 134px;height: 75px;
+			margin-top: 500px;
+			border:8px solid #000;
+		}
+		#button{
+			position: fixed;
+			z-index: 100;
+		}
+	</style>
+</head>
+<body>
+	<div id="content">
+		<!-- <div id="button">
+			<button onclick="go()">A</button>
+		</div> -->
+		<input type="radio" name="carousel" id="list1" checked>
+		<label for="list1">
+			<img src="1.jpg" alt="">
+		</label>
+		<img src="1.jpg" alt="" >
+
+		<input type="radio" name="carousel" id="list2">
+		<label for="list2">
+			<img src="2.jpg" alt="">
+		</label>
+		<img src="2.jpg" alt="">
+
+		<input type="radio" name="carousel" id="list3">
+		<label for="list3">
+			<img src="3.jpg" alt="">
+		</label>
+		<img src="3.jpg" alt="">
+
+		<input type="radio" name="carousel" id="list4">
+		<label for="list4">
+			<img src="4.jpg" alt="">
+		</label>
+		<img src="4.jpg" alt="">
+
+		<input type="radio" name="carousel" id="list5">
+		<label for="list5">
+			<img src="5.jpg" alt="">
+		</label>
+		<img src="5.jpg" alt="">
+	</div>
+	<!-- <script type="text/javascript">
+		function go(){
+			
+		}
+	</script> -->
+</body>
+</html>
